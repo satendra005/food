@@ -8,7 +8,25 @@ describe('Food.com', () => {
     cy.get('.open > .dropdown > :nth-child(5)').click()
     cy.wait(500);
     cy.scrollTo('bottom', { duration: 10000 }); // smooth scroll
+    cy.wait(2000)
     cy.scrollTo('top', { duration: 10000 });
+    cy.get('.links-container').click()
+    cy.get('.button--search').click()
+    cy.wait(2000); 
+    cy.get('#search-input').type('BANANA');
+    cy.get('.icon-gk-search').click()
+    cy.scrollTo('bottom', { duration: 1000 });
+    cy.wait(2000)
+    cy.get('[data-id="recipe-2886"] > .fd-inner-tile > .tile-content > .details > .title > a').click()
+    cy.get('[href="/recipe/banana-banana-bread-25885?nav=recipe"] > .mobile-button').click()
+    cy.scrollTo('bottom', { duration: 10000 }); // smooth scroll
+    cy.get('.top-and-social__top').click() // Back to top
+
+   
+   
+  
+
+
     
 
 
@@ -16,5 +34,5 @@ describe('Food.com', () => {
 // cy.wait(1000);         // wait for any lazy-loaded content
 // cy.scrollTo('top');  
   
-    })
-})
+    });
+});
